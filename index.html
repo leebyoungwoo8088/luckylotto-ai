@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuckyLotto AI - 로또 번호 생성기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Noto Sans KR"', 'sans-serif'],
+            },
+            animation: {
+              'spin-slow': 'spin 8s linear infinite',
+              'spin-reverse': 'spinReverse 8s linear infinite',
+              'bounce-slight': 'bounce 0.5s infinite',
+              'pulse-glow': 'pulseGlow 3s infinite',
+              'rumble': 'rumble 0.2s linear infinite',
+            },
+            keyframes: {
+              pulseGlow: {
+                '0%, 100%': { opacity: '0.5', transform: 'scale(1)' },
+                '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+              },
+              spinReverse: {
+                '0%': { transform: 'rotate(0deg)' },
+                '100%': { transform: 'rotate(-360deg)' },
+              },
+              rumble: {
+                '0%': { transform: 'translate(0, 0)' },
+                '25%': { transform: 'translate(1px, 1px)' },
+                '50%': { transform: 'translate(-1px, -1px)' },
+                '75%': { transform: 'translate(1px, -1px)' },
+                '100%': { transform: 'translate(0, 0)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        background-color: #0f172a; /* Ensure dark background loads immediately */
+        color: white;
+      }
+      
+      .perspective-1000 {
+        perspective: 1200px;
+      }
+      .preserve-3d {
+        transform-style: preserve-3d;
+      }
+      
+      /* Metallic Texture */
+      .metal-surface {
+        background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 50%, #94a3b8 100%);
+        position: relative;
+      }
+      .metal-surface::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3h1v1H1V3zm2-2h1v1H3V1z' fill='%23000000' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      /* Blue LED Glow */
+      .led-strip {
+        box-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4, inset 0 0 5px #cffafe;
+      }
+
+      /* Glass Effects */
+      .glass-drum {
+        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 60%, rgba(255,255,255,0.1) 100%);
+        backdrop-filter: blur(1px);
+        box-shadow: inset -5px -5px 15px rgba(0,0,0,0.2), inset 5px 5px 15px rgba(255,255,255,0.4);
+        border: 1px solid rgba(255,255,255,0.3);
+      }
+
+      .glass-tube {
+        background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.1) 100%);
+        border-left: 1px solid rgba(255,255,255,0.4);
+        border-right: 1px solid rgba(255,255,255,0.4);
+      }
+      
+      #root {
+        height: 100%;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root" class="flex items-center justify-center min-h-screen text-slate-500">
+      Loading LuckyLotto AI...
+    </div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
